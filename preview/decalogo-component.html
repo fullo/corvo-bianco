@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_base.css">
+<style>
+  .item { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--ink-line); font-family: var(--font-display); font-size: 18px; line-height: 1.4; }
+  .item:last-child { border-bottom: none; }
+  .left  { text-align: right; font-weight: 600; color: var(--sumi); }
+  .sep   { font-style: italic; color: var(--kohaku); font-size: 14px; white-space: nowrap; }
+  .right { text-align: left; color: var(--sumi-soft); }
+</style>
+</head>
+<body>
+<div class="card" style="padding: 22px 56px;">
+  <div class="item">
+    <span class="left">Il fine lungo</span>
+    <span class="sep">più che</span>
+    <span class="right">l'obiettivo a portata di mano.</span>
+  </div>
+  <div class="item">
+    <span class="left">La domanda giusta</span>
+    <span class="sep">più che</span>
+    <span class="right">la risposta rapida.</span>
+  </div>
+  <div class="item">
+    <span class="left">La disciplina dello sguardo</span>
+    <span class="sep">più che</span>
+    <span class="right">l'esercizio della previsione.</span>
+  </div>
+</div>
+</body>
+</html>

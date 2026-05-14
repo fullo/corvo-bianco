@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_base.css">
+<style>
+  a.cb { color: var(--sumi); text-decoration: none; border-bottom: 1px solid var(--ink-line); transition: color 200ms ease, border-color 200ms ease; font-family: var(--font-body); font-size: 16px; }
+  a.cb.hover { color: var(--vermilion); border-color: var(--vermilion-soft); }
+  a.cb.focus { outline: 2px solid var(--vermilion); outline-offset: 4px; }
+</style>
+</head>
+<body>
+<div class="card" style="padding: 22px 32px;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px;">
+    <div>
+      <div class="label" style="margin-bottom: 14px;">Default</div>
+      <a class="cb">manifesto</a>
+      <p style="font-family: var(--font-body); font-size: 11.5px; font-style: italic; color: var(--kohaku); margin: 12px 0 0;">Tratto sottile, inchiostro al 12%</p>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom: 14px;">Hover</div>
+      <a class="cb hover">manifesto</a>
+      <p style="font-family: var(--font-body); font-size: 11.5px; font-style: italic; color: var(--kohaku); margin: 12px 0 0;">Vermiglione + soft</p>
+    </div>
+    <div>
+      <div class="label" style="margin-bottom: 14px;">Focus visible</div>
+      <span style="display: inline-block;"><a class="cb focus">manifesto</a></span>
+      <p style="font-family: var(--font-body); font-size: 11.5px; font-style: italic; color: var(--kohaku); margin: 12px 0 0;">Outline 2 px · offset 4 px</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

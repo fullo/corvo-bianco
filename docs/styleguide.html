@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styleguide — Corvo Bianco</title>
+  <meta name="description" content="Sistema di design di Corvo Bianco: tipografia, colore, spaziatura, componenti.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/images/yatagarasu.svg">
+  <link rel="icon" type="image/png" href="assets/images/yatagarasu.png">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema">Notte</button>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand-mark">Corvo Bianco</a>
+      <span class="section-label">Styleguide</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="sg-section">
+      <h1>Sistema di design</h1>
+      <p class="sg-note">
+        Riferimento visivo per le pagine di Corvo Bianco. Tutto ciò che compare qui è coerente con il manifesto: sottrazione, respiro, vermiglione solo come sigillo. Quando si introduce un nuovo elemento al sito, deve poter essere descritto in questa pagina; se non può, probabilmente non appartiene al brand.
+      </p>
+    </section>
+
+    <section class="sg-section">
+      <span class="section-label">01 — Tipografia</span>
+      <h2 style="margin-top: var(--space-2); margin-bottom: var(--space-4);">Caratteri</h2>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">Display — Cardo Regular &amp; Italic</div>
+        <div class="motto-display"><em>Respice finem</em></div>
+      </div>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">H1 — Cardo 400 / 3.95rem</div>
+        <h1>L'animale che vede</h1>
+      </div>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">H2 — Cardo 400 / 2.22rem</div>
+        <h2>Memoria che fa domande</h2>
+      </div>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">H3 — Cardo 400 / 1.67rem</div>
+        <h3>Disciplina dello sguardo</h3>
+      </div>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">Body — EB Garamond 400 / 1.25rem</div>
+        <p style="max-width: var(--measure-base);">
+          Le organizzazioni decidono ogni giorno con razionalità locale e cecità sistemica. Ottimizzano la parte e perdono il tutto. Vincono la partita di oggi e perdono quella che conta.
+        </p>
+      </div>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">Sans — IBM Plex Sans 500 / 1rem · voce operativa</div>
+        <p style="max-width: var(--measure-base); font-family: var(--font-sans); font-weight: 500;">
+          Dashboard, slide, form, navigazione. Il sans entra dove serve un linguaggio operativo, non narrativo.
+        </p>
+      </div>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">Mono — IBM Plex Mono 400 / 0.84rem · codice e token</div>
+        <p style="max-width: var(--measure-base); font-family: var(--font-mono); font-size: var(--fs-xs);">
+          --sumi: #1a1817; &nbsp; --washi: #f5f0e6; &nbsp; --vermilion: #b53127;
+        </p>
+      </div>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">Section label — Cardo / 0.84rem / 0.18em tracking</div>
+        <span class="section-label">Perché</span>
+      </div>
+
+      <div class="sg-type-row">
+        <div class="sg-type-label">Caption — EB Garamond Italic / 0.84rem</div>
+        <p class="caption">Nota a margine, didascalia, riferimento secondario.</p>
+      </div>
+
+      <p class="sg-note">
+        Quattro famiglie OFL locali. <strong>Cardo + EB Garamond</strong> sono i serif italiani classici, voce cerimoniale e contemplativa del brand. <strong>IBM Plex Sans + Mono</strong> sono la voce operativa — UI, slide, dashboard. Serif per il contenuto, sans per gli strumenti.
+      </p>
+    </section>
+
+    <section class="sg-section">
+      <span class="section-label">02 — Colore</span>
+      <h2 style="margin-top: var(--space-2); margin-bottom: var(--space-4);">Palette</h2>
+
+      <div class="sg-grid">
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background-color: var(--sumi);"></div>
+          <div class="sg-swatch-meta"><strong>Sumi — inchiostro</strong>#1a1817<br>Testo primario, tratti</div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background-color: var(--sumi-soft);"></div>
+          <div class="sg-swatch-meta"><strong>Sumi soft — diluito</strong>#3a3530<br>Testo secondario</div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background-color: var(--kohaku);"></div>
+          <div class="sg-swatch-meta"><strong>Kohaku — ambra</strong>#6b5b4f<br>Didascalie, etichette</div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background-color: var(--washi);"></div>
+          <div class="sg-swatch-meta"><strong>Washi — carta</strong>#f5f0e6<br>Sfondo primario</div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background-color: var(--rice);"></div>
+          <div class="sg-swatch-meta"><strong>Rice — carta chiara</strong>#faf7f0<br>Superfici secondarie</div>
+        </div>
+        <div class="sg-swatch">
+          <div class="sg-swatch-color" style="background-color: var(--vermilion);"></div>
+          <div class="sg-swatch-meta"><strong>Vermilion — sigillo</strong>#b53127<br>Accento, solo puntuale</div>
+        </div>
+      </div>
+
+      <p class="sg-note">
+        Il vermiglione è il <strong>sigillo</strong> (hanko), non una decorazione. Usarlo per: stato di hover sui link, separatori puntuali, marchio finale del footer. <strong>Mai</strong> per grandi superfici, bottoni call-to-action vistosi, sfondi di sezione. Regola dell'1%.
+      </p>
+    </section>
+
+    <section class="sg-section">
+      <span class="section-label">03 — Dark variant</span>
+      <h2 style="margin-top: var(--space-2); margin-bottom: var(--space-4);">Inchiostro su carta notturna</h2>
+      <p>Attiva con <code style="font-family: var(--font-mono); font-size: var(--fs-sm);">&lt;html data-theme="dark"&gt;</code> oppure dal toggle in alto a destra. Il sigillo vermiglione resta invariato (regola dell'1% mantenuta). Il logo eredita <code style="font-family: var(--font-mono); font-size: var(--fs-sm);">currentColor</code> e segue la palette — mai bianco puro.</p>
+    </section>
+
+    <section class="sg-section">
+      <span class="section-label">04 — Spaziatura</span>
+      <h2 style="margin-top: var(--space-2); margin-bottom: var(--space-4);">Scala</h2>
+
+      <div><div class="sg-type-label">space-1 — 8px</div>   <div class="sg-spacing-bar" style="width: 0.5rem;"></div></div>
+      <div style="margin-top: var(--space-2);"><div class="sg-type-label">space-2 — 16px</div>  <div class="sg-spacing-bar" style="width: 1rem;"></div></div>
+      <div style="margin-top: var(--space-2);"><div class="sg-type-label">space-3 — 24px</div>  <div class="sg-spacing-bar" style="width: 1.5rem;"></div></div>
+      <div style="margin-top: var(--space-2);"><div class="sg-type-label">space-4 — 32px</div>  <div class="sg-spacing-bar" style="width: 2rem;"></div></div>
+      <div style="margin-top: var(--space-2);"><div class="sg-type-label">space-5 — 48px</div>  <div class="sg-spacing-bar" style="width: 3rem;"></div></div>
+      <div style="margin-top: var(--space-2);"><div class="sg-type-label">space-6 — 64px</div>  <div class="sg-spacing-bar" style="width: 4rem;"></div></div>
+      <div style="margin-top: var(--space-2);"><div class="sg-type-label">space-7 — 96px · sezione</div>     <div class="sg-spacing-bar" style="width: 6rem;"></div></div>
+      <div style="margin-top: var(--space-2);"><div class="sg-type-label">space-8 — 128px</div> <div class="sg-spacing-bar" style="width: 8rem;"></div></div>
+      <div style="margin-top: var(--space-2);"><div class="sg-type-label">space-9 — 192px · hero</div>      <div class="sg-spacing-bar" style="width: 12rem;"></div></div>
+
+      <p class="sg-note">Scala base 8px. Nel dubbio, raddoppiare lo spazio.</p>
+    </section>
+
+    <section class="sg-section">
+      <span class="section-label">05 — Logo</span>
+      <h2 style="margin-top: var(--space-2); margin-bottom: var(--space-4);">Marchio</h2>
+
+      <div class="hero-logo" style="margin: 0;">
+        <div class="cb-logo-paint" id="yatagarasu-logo" role="img" aria-label="Yatagarasu — il corvo a tre zampe, marchio di Corvo Bianco"></div>
+      </div>
+
+      <p class="sg-note" style="margin-top: var(--space-3);">
+        Yatagarasu in sumi-e, senza occhio nel becco. Renderizzato come SVG inline con <code style="font-family: var(--font-mono); font-size: var(--fs-sm);">fill="currentColor"</code> — eredita il colore dal contesto, sempre dentro la palette.
+      </p>
+    </section>
+
+    <section class="sg-section">
+      <span class="section-label">06 — Principi compositivi</span>
+      <h2 style="margin-top: var(--space-2); margin-bottom: var(--space-4);">Regole di scrittura visiva</h2>
+
+      <ol style="max-width: var(--measure-base); padding-left: var(--space-3);">
+        <li style="margin-bottom: var(--space-2);"><strong>Sottrazione prima di addizione.</strong> Ogni elemento aggiunto deve giustificare la propria presenza.</li>
+        <li style="margin-bottom: var(--space-2);"><strong>Asimmetria controllata.</strong> Il centrato è ammesso solo nei momenti rituali.</li>
+        <li style="margin-bottom: var(--space-2);"><strong>Bicromia + sigillo.</strong> Inchiostro su carta, vermiglione come accento.</li>
+        <li style="margin-bottom: var(--space-2);"><strong>Tipografia come gesto.</strong> Niente ombre, niente bordi, niente sfumature sui caratteri.</li>
+        <li style="margin-bottom: var(--space-2);"><strong>Whitespace generoso.</strong> Lo spazio bianco è il soggetto, non lo sfondo.</li>
+        <li><strong>Niente animazioni decorative.</strong> Solo transizioni silenziose.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span class="seal"></span>
+      <p>Corvo Bianco — Styleguide</p>
+      <p><em>Respice finem</em></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

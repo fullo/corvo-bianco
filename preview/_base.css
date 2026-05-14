@@ -1,0 +1,84 @@
+/* Preview card base — used by all cards in preview/
+   Cards are sized to fit in the Design System tab grid.
+   The asset name renders OUTSIDE the card, so no titles here.
+*/
+@import url("../colors_and_type.css");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--washi);
+  color: var(--sumi);
+  font-family: var(--font-body);
+  /* Subtle paper texture — same as the site */
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(107, 91, 79, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(107, 91, 79, 0.025) 0%, transparent 50%);
+}
+
+.card {
+  padding: 28px 32px;
+  width: 700px;
+  box-sizing: border-box;
+}
+
+.card.tight { padding: 20px 32px; }
+
+.row {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.swatch {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.swatch .chip {
+  height: 64px;
+  border: 1px solid var(--ink-line);
+}
+
+.swatch .meta {
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--kohaku);
+  line-height: 1.45;
+}
+
+.swatch .meta strong {
+  display: block;
+  font-weight: 600;
+  color: var(--sumi);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.swatch .meta code {
+  font-family: "Courier New", monospace;
+  font-size: 10.5px;
+  color: var(--sumi-soft);
+}
+
+.rule {
+  height: 1px;
+  background: var(--ink-line);
+  margin: 18px 0;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--kohaku);
+}

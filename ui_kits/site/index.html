@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corvo Bianco — Respice finem (UI kit)</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/yatagarasu.svg">
+  <link rel="icon" type="image/png" href="../../assets/yatagarasu.png">
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: var(--washi);
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(107, 91, 79, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(107, 91, 79, 0.025) 0%, transparent 50%);
+      color: var(--sumi);
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    html { font-size: 18px; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    .cb-container {
+      width: 100%;
+      max-width: var(--measure-wide);
+      margin: 0 auto;
+      padding: 0 var(--space-3);
+    }
+
+    p { margin: 0 0 var(--space-3); }
+    p:last-child { margin-bottom: 0; }
+    em, i { font-style: italic; }
+
+    :focus-visible {
+      outline: 2px solid var(--vermilion);
+      outline-offset: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* La pipeline mask di .cb-logo-mask gestisce light/dark in palette.
+       (Legacy: in alcuni preview restano <img class="cb-logo"> — il
+       fallback invert+screen è in colors_and_type.css.) */
+
+    /* Theme toggle — discreto, in alto a destra. È un controllo del kit,
+       non parte del brand. Stesso linguaggio visivo del resto: tratto
+       sumi sottile, niente bottoni pieni. */
+    .cb-theme-toggle {
+      position: fixed;
+      top: 14px;
+      right: 18px;
+      z-index: 100;
+      font-family: var(--font-display);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--kohaku);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--ink-line);
+      padding: 4px 2px;
+      cursor: pointer;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+    .cb-theme-toggle:hover {
+      color: var(--vermilion);
+      border-color: var(--vermilion-soft);
+    }
+  </style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="top"></div>
+  <button class="cb-theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema">Notte</button>
+  <div id="root"></div>
+
+  <script>
+    (function () {
+      var KEY = "cb-theme";
+      var btn = document.getElementById("themeToggle");
+      var root = document.documentElement;
+      function apply(theme) {
+        if (theme === "dark") { root.setAttribute("data-theme", "dark"); btn.textContent = "Giorno"; }
+        else                  { root.removeAttribute("data-theme");      btn.textContent = "Notte";  }
+      }
+      var saved = localStorage.getItem(KEY) || "light";
+      apply(saved);
+      btn.addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        localStorage.setItem(KEY, next);
+        apply(next);
+      });
+    })();
+  </script>
+
+  <script type="text/babel" src="SiteHeader.jsx"></script>
+  <script type="text/babel" src="Hero.jsx"></script>
+  <script type="text/babel" src="ManifestoBlock.jsx"></script>
+  <script type="text/babel" src="DecalogoList.jsx"></script>
+  <script type="text/babel" src="SiteFooter.jsx"></script>
+
+  <script type="text/babel">
+    const { SiteHeader, Hero, ManifestoBlock, DecalogoList, SiteFooter, Motto } = window;
+
+    function ManifestoSection() {
+      return (
+        <section style={{ padding: "var(--space-7) 0" }}>
+          <div className="cb-container">
+
+            <ManifestoBlock label="Perché" title="Razionalità locale, cecità sistemica.">
+              <p>
+                Le organizzazioni decidono ogni giorno con razionalità locale e cecità sistemica.
+                Ottimizzano la parte e perdono il tutto. Vincono la partita di oggi e perdono quella che conta.
+              </p>
+              <p>
+                Il nemico è difficile da riconoscere perché ogni passo verso di lui è, individualmente,
+                ragionevole: l'obiettivo a portata di mano è sensato, la scorciatoia è efficiente, la
+                decisione che chiude il trimestre è difendibile. Sotto a tutto, una radice cognitiva sola:
+                l'abitudine, cioè memoria che ha smesso di fare domande.
+              </p>
+            </ManifestoBlock>
+
+            <ManifestoBlock label="Cosa" title="L'animale che vede, ricorda, e per questo sceglie.">
+              <p>
+                Contro questa cecità non basta più memoria, e non basta più creatività. Servono entrambe,
+                in equilibrio. Molte culture lo hanno raccontato attraverso un animale solo: il corvo.
+                Per i popoli norreni, Huginn e Muninn — Pensiero e Memoria — volavano ogni giorno sul mondo
+                e tornavano a Odino con ciò che avevano visto; il dio aveva pagato un occhio per averli.
+                Nella tradizione giapponese, lo yatagarasu è guida divina verso la meta. Nei miti celtici e
+                nei racconti dei nativi americani, il corvo è messaggero fra mondi, intelligenza che
+                attraversa i confini del visibile. Trans-culturalmente, è l'animale che vede, ricorda, e
+                per questo sa scegliere.
+              </p>
+              <p>
+                Da qui il nome. Il cigno nero di Taleb è l'evento raro che non sapevi di non sapere — la
+                sorpresa che arriva da fuori e ridefinisce il gioco. Il corvo bianco è il suo rovescio:
+                non l'evento che ti sorprende, ma lo sguardo che scegli di tenere in tempo. Il bianco non
+                è amnesia. È disciplina di disponibilità — restare aperti a vedere il problema com'è oggi,
+                anche quando l'esperienza suggerisce di trattarlo come uno di ieri.
+              </p>
+              <p>
+                Tutto questo si raccoglie in due parole che i romani usavano per pesare ogni azione:{" "}
+                <Motto>respice finem</Motto>, "guarda al fine". Non è una previsione, è una postura. È la
+                decisione di tenere lo sguardo sul risultato ultimo anche quando il quotidiano tira altrove —
+                perché è esattamente nel momento in cui il quotidiano tira più forte che il fine viene
+                perso di vista.
+              </p>
+            </ManifestoBlock>
+
+            <ManifestoBlock label="Come" title="Pensiero che precede l'esecuzione.">
+              <p>
+                Corvo Bianco accompagna le organizzazioni nel ripensamento strategico: definizione di
+                obiettivi che reggono nel tempo lungo (OKR), costruzione esplicita delle catene causali fra
+                azioni e risultati (teoria del cambiamento), esercizio del pensiero critico contro le
+                risposte rapide.
+              </p>
+              <p>
+                Quando il territorio è nuovo e la mappa manca, lavoriamo per sperimentazione misurata —
+                piccoli passi verificabili invece di grandi gesti convinti, dati che interrogano lo sguardo
+                invece di confermarlo.
+              </p>
+              <p>
+                Pochi clienti l'anno, percorsi lunghi, nessuna fretta. Solo lo sguardo, e dove sceglie di
+                posarsi.
+              </p>
+            </ManifestoBlock>
+
+          </div>
+        </section>
+      );
+    }
+
+    const decalogoItems = [
+      { left: "Il fine lungo",                right: "l'obiettivo a portata di mano." },
+      { left: "L'immagine intera",            right: "l'ottimizzazione della parte." },
+      { left: "La partita che conta",         right: "la partita di oggi." },
+      { left: "Curiosità critica",            right: "familiarità rassicurante." },
+      { left: "Misure che parlano",           right: "impressioni che convincono." },
+      { left: "La domanda giusta",            right: "la risposta rapida." },
+      { left: "La disciplina dello sguardo",  right: "l'esercizio della previsione." },
+    ];
+
+    function App() {
+      return (
+        <>
+          <SiteHeader />
+          <main>
+            <Hero />
+            <ManifestoSection />
+            <DecalogoList items={decalogoItems} opening closing />
+          </main>
+          <SiteFooter />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
