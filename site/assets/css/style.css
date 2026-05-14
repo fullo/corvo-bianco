@@ -232,17 +232,18 @@ section + section {
 .hero-logo {
   max-width: 240px;
   margin: 0 auto var(--space-5);
-  /* Placeholder finché il logo non è pronto */
-  aspect-ratio: 1 / 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed var(--ink-line);
-  color: var(--kohaku);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
 }
+
+.hero-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Se il PNG generato avesse uno sfondo bianco invece di washi,
+   attivare la riga sotto per fondere otticamente con la pagina:
+   .hero-logo img { mix-blend-mode: multiply; }
+   (Funziona solo su sfondi chiari — non usare in dark mode.) */
 
 .hero-motto {
   margin-bottom: var(--space-2);
